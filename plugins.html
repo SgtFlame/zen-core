@@ -1,0 +1,146 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Plugin System &mdash; Zen Core C++ Library 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Zen Core C++ Library 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Scripting Framework" href="scripting.html" />
+    <link rel="prev" title="Zen Core C++ Library documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="scripting.html" title="Scripting Framework"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Zen Core C++ Library documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Zen Core C++ Library 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="plugin-system">
+<h1>Plugin System<a class="headerlink" href="#plugin-system" title="Permalink to this headline">¶</a></h1>
+<p>The bulk of the implementation within Zen Core exists in support of the Plugin System and the related registries.</p>
+<p>Plugins are components inside of shared libraries (DLL or SO, depending on your platform).  These components are dynamically loaded at runtime on demand.</p>
+<p>The Plugin System registry stores information about the different components that can be loaded.  Applications can interrogate the plugin registry, find a component that it needs to load, then load it dynamically at runtime.</p>
+<p>Zen Core achieves this through concepts called Extensions and Extension Points.</p>
+<div class="section" id="extension-points">
+<h2>Extension Points<a class="headerlink" href="#extension-points" title="Permalink to this headline">¶</a></h2>
+<p>An Extension Point is a place within the framework which can be extended.</p>
+<p>It consists primarily of a definition inside of an XML file, plus an abstract interface that defines what the extension point should do.</p>
+</div>
+<div class="section" id="extensions">
+<h2>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h2>
+<p>An Extension is an implementation of an Extension Point that does the extending.  In other words, it is the concrete implementation of the abstract interface deefined in the Extension Point.</p>
+</div>
+<div class="section" id="how-it-works">
+<h2>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h2>
+<p>An Extension Point is defined through the use of four pieces of code.  An interface, an abstract factory, a manager and an XML schema.</p>
+<p>First is the Interface, which is defined through an abstract C++ class, generally called a Service.  This interface defines what the Extension Point can &#8220;do&#8221;.  For example, &#8220;I_RenderingService&#8221; defines a Rendering Extension Point, and the abstract methods (virtual xxx() = 0) define what a Rendering Extension Point can do.</p>
+<p>The second piece of an Extension Point is an abstract Factory.  The abstract Factory defines how an Extension Point Service is created.  Since it&#8217;s abstract, the factory doesn&#8217;t really create anything because the only implementation is the constructor and the destructor, which are generally empty.</p>
+<p>The third piece of an Extension Point is a manager.  The manager of an extension point generally is a singleton helper class that implements the interaction between the extension point and the Zen Core Plugin System.</p>
+<p>The last piece of of an Extension Point is actually coded in XML.  A portion of the XML defines the namespace, the service name and the location of a schema.  The namespace and service name defined in the XML generally corresponds with the C++ namespace and interface name of the extension point Service, minus the &#8220;I_&#8221; portion.  Using our previous example of the Rendering extension point, I_RenderingService is in the &#8220;Zen::Engine::Rendering&#8221; namespace, so inside the extension point XML, the namespace is declared as &#8220;Zen::Engine::Rendering&#8221; and the service name is &#8220;RenderingService&#8221;.</p>
+<p>The schema to which the XML points is a schema used as the meta data that defines what type of information is required when defining an Extension that implements the Extension Point.</p>
+<p>In Zen Core, the bulk of the abstract classes are related to creating plugins and most of the interactions among the interfaces are rather vague, but their&#8217;s a good reason for this.</p>
+<p>Zen Core is a framework framework.  The sole purpose of the framework is to make it easier to create other frameworks.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Plugin System</a><ul>
+<li><a class="reference internal" href="#extension-points">Extension Points</a></li>
+<li><a class="reference internal" href="#extensions">Extensions</a></li>
+<li><a class="reference internal" href="#how-it-works">How it works</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Zen Core C++ Library documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scripting.html"
+                        title="next chapter">Scripting Framework</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/plugins.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="scripting.html" title="Scripting Framework"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Zen Core C++ Library documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">Zen Core C++ Library 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Tony Richards.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

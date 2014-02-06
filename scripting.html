@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Zen Core C++ Library documentation &mdash; Zen Core C++ Library 1.0.0 documentation</title>
+    <title>Scripting Framework &mdash; Zen Core C++ Library 1.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Zen Core C++ Library 1.0.0 documentation" href="#" />
-    <link rel="next" title="Plugin System" href="plugins.html" /> 
+    <link rel="top" title="Zen Core C++ Library 1.0.0 documentation" href="index.html" />
+    <link rel="prev" title="Plugin System" href="plugins.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,8 +37,8 @@
              accesskey="I">index</a></li>
         <li class="right" >
           <a href="plugins.html" title="Plugin System"
-             accesskey="N">next</a> |</li>
-        <li><a href="#">Zen Core C++ Library 1.0.0 documentation</a> &raquo;</li> 
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Zen Core C++ Library 1.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -47,31 +47,11 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="zen-core-c-library-documentation">
-<h1>Zen Core C++ Library documentation<a class="headerlink" href="#zen-core-c-library-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Zen Core is the foundation of the rest of Zen Open Source Software (<a class="reference external" href="https://code.google.com/p/indiezen/">ZOSS</a>).</p>
-<p>It is written in pure ISO C++ and relies only on <a class="reference external" href="http://boost.org">Boost</a>, and <a class="reference external" href="http://xmlsoft.org">libxml2</a> libraries.</p>
-<p>It contains a smart pointer memory management library, a template based event library, a math library, a plugin system, a scripting framework, a threading library and a utility library.</p>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="plugins.html#extension-points">Extension Points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plugins.html#extensions">Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plugins.html#how-it-works">How it works</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="scripting.html">Scripting Framework</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
-</ul>
+  <div class="section" id="scripting-framework">
+<h1>Scripting Framework<a class="headerlink" href="#scripting-framework" title="Permalink to this headline">¶</a></h1>
+<p>Also included in Zen Core is a scripting framework.  This framework makes it easier for you to integrate scripting languages into your application.</p>
+<p>Using the framework, you define scriptable classes, object and methods in a generic way.  Scripting plugins utilize this information and implement the &#8220;glue&#8221; code that does the actual C/C++ binding to the script library.</p>
+<p>Currently Lua and Python scripting libraries have been implemented, making it so that with very little code you can easily create applications that bind to either (or both) of those languages.  Adding new languages is simple, and as new scripting plugins are created, your applications using the scripting framework will already be capable of using the additional languages.</p>
 </div>
 
 
@@ -80,20 +60,12 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Zen Core C++ Library documentation</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
-
-  <h4>Next topic</h4>
+  <h4>Previous topic</h4>
   <p class="topless"><a href="plugins.html"
-                        title="next chapter">Plugin System</a></p>
+                        title="previous chapter">Plugin System</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/index.txt"
+    <li><a href="_sources/scripting.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -121,8 +93,8 @@
              >index</a></li>
         <li class="right" >
           <a href="plugins.html" title="Plugin System"
-             >next</a> |</li>
-        <li><a href="#">Zen Core C++ Library 1.0.0 documentation</a> &raquo;</li> 
+             >previous</a> |</li>
+        <li><a href="index.html">Zen Core C++ Library 1.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
