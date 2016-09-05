@@ -7,10 +7,10 @@ The Zen Core library adds several enhanced capabilities to C++
 
  * Events
  * 2d and 3d Math
- * Advanced smart pointers
- * Plugin system modelled after OSGi / Eclipse
- * Scripting integration
- * Multi-threading
+ * Advanced smart pointers (deprecated, now using STL smart pointers)
+ * Plugin system modelled after OSGi / Eclipse (moved to [indie-zen/zen-scripting](https://github.com/indie-zen/zen-plugin))
+ * Scripting integration (moved to [indie-zen/zen-scripting](https://github.com/indie-zen/zen-scripting))
+ * Multi-threading (deprecated, now using STL threading)
 
 This library is cross platform, supporting gcc, XCode, and MSVC on Linux, Mac OS X and 
 Windows operating systems.
